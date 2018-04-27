@@ -36,7 +36,13 @@ resolver: lts-11.6
 # non-dependency (i.e. a user package), and its test suites and benchmarks
 # will not be run. This is useful for tweaking upstream packages.
 packages:
-- .
+  - .
+  - location:
+      git: https://github.com/concert/hs-varword.git
+      commit: 308bd22a40ca51da4d2a6a11a8b96232cc8fa055
+    subdirs:
+     - bytestring-builder-varword
+    extra-dep: true
 # Dependency packages to be pulled from upstream that are not in the resolver
 # (e.g., acme-missiles-0.3)
 # extra-deps: []

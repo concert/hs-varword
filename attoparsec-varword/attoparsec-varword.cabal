@@ -39,6 +39,7 @@ test-suite attoparsec-varword
                      , attoparsec-varword
                      , attoparsec
                      , bytestring
+                     , bytestring-builder-varword
                      , hspec
                      , QuickCheck
   other-modules:       Data.Attoparsec.VarWordSpec
