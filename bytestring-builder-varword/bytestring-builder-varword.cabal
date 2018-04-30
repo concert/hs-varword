@@ -4,8 +4,8 @@ synopsis:            Variable-length integer encoding
 description:
   A collection of functions for producing 'Data.ByteString.Builder.Builder's
   that encode integer types into compact, variable-length representations.
-homepage:            https://github.com/concertdaw/hs-varword#readme
-bug-reports:         https://github.com/concertdaw/hs-varword/issues
+homepage:            https://github.com/concert/hs-varword#readme
+bug-reports:         https://github.com/concert/hs-varword/issues
 stability:           Experimental
 license:             LGPL-3
 license-file:        LICENSE

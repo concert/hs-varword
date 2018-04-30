@@ -4,8 +4,8 @@ synopsis:            Variable-length integer decoding for Attoparsec
 description:
   A collection of 'Data.Attoparsec.Parser's that decode integer types from
   compact, variable-length representations.
-homepage:            https://github.com/concertdaw/hs-varword#readme
-bug-reports:         https://github.com/concertdaw/hs-varword/issues
+homepage:            https://github.com/concert/hs-varword#readme
+bug-reports:         https://github.com/concert/hs-varword/issues
 stability:           Experimental
 license:             LGPL-3
 license-file:        LICENSE
