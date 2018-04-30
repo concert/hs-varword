@@ -1,3 +1,8 @@
+{- | Implementations of 'BoundedPrim' for several variable-length integer
+     encodings. Rather than use these directly, consider the higher level
+     "Data.ByteString.Builder.VarNum" 'Data.ByteString.Builder.Builder'
+     interface.
+-}
 module Data.ByteString.Builder.Prim.VarWord
   ( varWordBe, denseVarWordBe
   , varWordLe
@@ -10,18 +15,25 @@ import Foreign.Ptr (Ptr, plusPtr)
 import Foreign.Storable (Storable, poke, sizeOf)
 
 
+-- | 'BoundedPrim' for big-endian (most significant chunk first) variable length
+--   encoding
 varWordBe :: forall a. (Bits a, Integral a, Storable a) => BoundedPrim a
 varWordBe = boundedPrim (sizeOf @a undefined) go
   where
     go :: a -> Ptr Word8 -> IO (Ptr Word8)
     go a ptr = write7BitChunks (chunkWordBe a) ptr
 
+-- | 'BoundedPrim' for big-endian (most significant chunk first) variable length
+--   encoding where the continuation bit is also reused to pack information
+--   slightly more densely.
 denseVarWordBe :: forall a. (Bits a, Integral a, Storable a) => BoundedPrim a
 denseVarWordBe = boundedPrim (sizeOf @a undefined) go
   where
     go :: a -> Ptr Word8 -> IO (Ptr Word8)
     go a ptr = write7BitChunks (denseChunkWordBe a) ptr
 
+-- | 'BoundedPrim' for little-endian (least significant chunk first) variable
+--   length encoding
 varWordLe :: forall a. (Bits a, Integral a, Storable a) => BoundedPrim a
 varWordLe = boundedPrim (sizeOf @a undefined) go
   where
