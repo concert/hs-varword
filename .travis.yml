@@ -27,7 +27,7 @@ script:
   - stack --no-terminal test --coverage
 after_script:
   - pwd
-  - shc hs-varword ${PACKAGE}-test
+  - shc ${PACKAGE} ${PACKAGE}-test
 notifications:
   email: false
   irc:
