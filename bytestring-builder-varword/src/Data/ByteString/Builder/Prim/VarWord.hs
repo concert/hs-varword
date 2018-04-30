@@ -18,7 +18,7 @@ import Foreign.Storable (Storable, poke, sizeOf)
 -- | 'BoundedPrim' for big-endian (most significant chunk first) variable length
 --   encoding
 varWordBe :: forall a. (Bits a, Integral a, Storable a) => BoundedPrim a
-varWordBe = boundedPrim (sizeOf @a undefined) go
+varWordBe = boundedPrim (sizeOf (undefined :: a)) go
   where
     go :: a -> Ptr Word8 -> IO (Ptr Word8)
     go a ptr = write7BitChunks (chunkWordBe a) ptr
@@ -27,7 +27,7 @@ varWordBe = boundedPrim (sizeOf @a undefined) go
 --   encoding where the continuation bit is also reused to pack information
 --   slightly more densely.
 denseVarWordBe :: forall a. (Bits a, Integral a, Storable a) => BoundedPrim a
-denseVarWordBe = boundedPrim (sizeOf @a undefined) go
+denseVarWordBe = boundedPrim (sizeOf (undefined :: a)) go
   where
     go :: a -> Ptr Word8 -> IO (Ptr Word8)
     go a ptr = write7BitChunks (denseChunkWordBe a) ptr
@@ -35,7 +35,7 @@ denseVarWordBe = boundedPrim (sizeOf @a undefined) go
 -- | 'BoundedPrim' for little-endian (least significant chunk first) variable
 --   length encoding
 varWordLe :: forall a. (Bits a, Integral a, Storable a) => BoundedPrim a
-varWordLe = boundedPrim (sizeOf @a undefined) go
+varWordLe = boundedPrim (sizeOf (undefined :: a)) go
   where
     go :: a -> Ptr Word8 -> IO (Ptr Word8)
     go a ptr = write7BitChunks (chunkWordLe a) ptr

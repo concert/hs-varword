@@ -26,7 +26,6 @@ library
   ghc-options:         -Wall
   default-extensions:  BinaryLiterals
                      , ScopedTypeVariables
-                     , TypeApplications
   exposed-modules:     Data.ByteString.Builder.Prim.VarWord
                      , Data.ByteString.Builder.VarWord
   build-depends:       base >= 4.7 && < 5
