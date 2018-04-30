@@ -1,6 +1,9 @@
 Variable length integer encoding
 ================================
 
+[![Build Status](https://travis-ci.org/concert/hs-varword.svg?branch=master)](
+https://travis-ci.org/concert/hs-varword)
+
 This repository consists of two Haskell libraries:
  * [`attoparsec-varword`](
    https://github.com/concert/hs-varword/tree/master/attoparsec-varword#readme)
