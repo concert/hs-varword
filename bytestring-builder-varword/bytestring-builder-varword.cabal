@@ -1,11 +1,13 @@
 name:                bytestring-builder-varword
 version:             0.1.0.0
--- synopsis:
--- description:
+synopsis:            Variable-length integer encoding
+description:
+  A collection of functions for producing 'Data.ByteString.Builder.Builder's
+  that encode integer types into compact, variable-length representations.
 homepage:            https://github.com/concertdaw/hs-varword#readme
 bug-reports:         https://github.com/concertdaw/hs-varword/issues
 stability:           Experimental
-license:             LGPL3
+license:             LGPL-3
 license-file:        LICENSE
 author:              Paul Weaver
 maintainer:          paul@concertdaw.co.uk
@@ -46,3 +48,4 @@ test-suite bytestring-builder-varword-test
                      , hspec
                      , QuickCheck
   other-modules:       Data.ByteString.Builder.VarWordSpec
+  default-language:    Haskell2010
