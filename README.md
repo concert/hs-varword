@@ -3,6 +3,8 @@ Variable length integer encoding
 
 [![Build Status](https://travis-ci.org/concert/hs-varword.svg?branch=master)](
 https://travis-ci.org/concert/hs-varword)
+[![Coverage Status](https://coveralls.io/repos/github/concert/hs-varword/badge.svg?branch=master)](
+https://coveralls.io/github/concert/hs-varword?branch=master)
 
 This repository consists of two Haskell libraries:
  * [`attoparsec-varword`](
