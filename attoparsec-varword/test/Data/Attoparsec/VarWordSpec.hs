@@ -15,16 +15,16 @@ import Data.Attoparsec.VarWord (varWordBe, denseVarWordBe, varWordLe)
 
 spec :: Spec
 spec = do
-  varNumSpec "Big-endian chunked number parser"
+  varWordSpec "Big-endian chunked number parser"
     varWordBe Builder.varWordBe 18464
-  varNumSpec "Big-endian dense chunked number parser"
+  varWordSpec "Big-endian dense chunked number parser"
     denseVarWordBe Builder.denseVarWordBe 34976
-  varNumSpec "Little-endian chunked number parser"
+  varWordSpec "Little-endian chunked number parser"
     varWordLe Builder.varWordLe 526337
 
 
-varNumSpec :: String -> Parser Word32 -> (Word32 -> Builder) -> Word32 -> Spec
-varNumSpec s p b expected = describe s $ do
+varWordSpec :: String -> Parser Word32 -> (Word32 -> Builder) -> Word32 -> Spec
+varWordSpec s p b expected = describe s $ do
   it "should parse a known bytestring" $ do
     parseOnly p (BS.pack [0b10000001, 0b10010000, 0b00100000])
       `shouldBe` Right expected
