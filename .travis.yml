@@ -1,41 +1,5 @@
 # Derived from https://raw.githubusercontent.com/commercialhaskell/stack/master/doc/travis-simple.yml
 sudo: false
-language: generic
-cache:
-  directories:
-    - $HOME/.stack
-    - $HOME/.local/bin
-    - $TRAVIS_BUILD_DIR/.stack-work
-addons:
-  apt:
-    packages: []
-env:
-  # FIXME: there doesn't seem to be a good way to keep this DRY:
-  - RESOLVER=lts-6.25 PACKAGE=attoparsec-varword
-  - RESOLVER=lts-6.25 PACKAGE=bytestring-builder-varword
-
-  - RESOLVER=lts-9.19 PACKAGE=attoparsec-varword
-  - RESOLVER=lts-9.19 PACKAGE=bytestring-builder-varword
-
-  - RESOLVER=lts-11.7 PACKAGE=attoparsec-varword
-  - RESOLVER=lts-11.7 PACKAGE=bytestring-builder-varword
-
-before_install:
-  - mkdir -p ~/.local/bin
-  - export PATH=$HOME/.local/bin:$PATH
-  - stack upgrade --binary-only || travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
-  - git clone https://github.com/concert/stack-hpc-coveralls.git
-  - $(cd stack-hpc-coveralls; stack install stack-hpc-coveralls)
-  - cd $PACKAGE
-install:
-  - pwd
-  - stack --resolver=$RESOLVER --no-terminal --install-ghc test --only-dependencies
-script:
-  - pwd
-  - stack --resolver=$RESOLVER --no-terminal test --coverage
-after_script:
-  - pwd
-  - shc ${PACKAGE} ${PACKAGE}-test
 notifications:
   email: false
   irc:
@@ -45,3 +9,48 @@ notifications:
     on_failure: change
     template:
      - "%{repository_name}/%{branch} %{result}: %{build_url}"
+
+_stack_build: &_stack_build
+  language: generic
+  cache:
+    directories:
+      - $HOME/.stack
+      - $HOME/.local/bin
+      - $TRAVIS_BUILD_DIR/.stack-work
+  addons:
+    apt:
+      packages: []
+  before_install:
+    - mkdir -p ~/.local/bin
+    - export PATH=$HOME/.local/bin:$PATH
+    - stack upgrade --binary-only || travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
+    - git clone https://github.com/concert/stack-hpc-coveralls.git
+    - $(cd stack-hpc-coveralls; stack install stack-hpc-coveralls)
+    - cd $PACKAGE
+  install:
+    - pwd
+    - stack --resolver=$RESOLVER --no-terminal --install-ghc test --only-dependencies
+  script:
+    - pwd
+    - stack --resolver=$RESOLVER --no-terminal test --coverage
+  after_script:
+    - pwd
+    - shc ${PACKAGE} ${PACKAGE}-test
+
+matrix:
+  include:
+  # FIXME: there doesn't seem to be a good way to keep this DRY:
+   - <<: *_stack_build
+     env: RESOLVER=lts-6.25 PACKAGE=attoparsec-varword
+   - <<: *_stack_build
+     env: RESOLVER=lts-6.25 PACKAGE=bytestring-builder-varword
+
+   - <<: *_stack_build
+     env: RESOLVER=lts-9.19 PACKAGE=attoparsec-varword
+   - <<: *_stack_build
+     env: RESOLVER=lts-9.19 PACKAGE=bytestring-builder-varword
+
+   - <<: *_stack_build
+     env: RESOLVER=lts-11.7 PACKAGE=attoparsec-varword
+   - <<: *_stack_build
+     env: RESOLVER=lts-11.7 PACKAGE=bytestring-builder-varword
