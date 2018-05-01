@@ -10,8 +10,16 @@ addons:
   apt:
     packages: []
 env:
-  - PACKAGE=attoparsec-varword
-  - PACKAGE=bytestring-builder-varword
+  # FIXME: there doesn't seem to be a good way to keep this DRY:
+  - RESOLVER=lts-6.25 PACKAGE=attoparsec-varword
+  - RESOLVER=lts-6.25 PACKAGE=bytestring-builder-varword
+
+  - RESOLVER=lts-9.19 PACKAGE=attoparsec-varword
+  - RESOLVER=lts-9.19 PACKAGE=bytestring-builder-varword
+
+  - RESOLVER=lts-11.7 PACKAGE=attoparsec-varword
+  - RESOLVER=lts-11.7 PACKAGE=bytestring-builder-varword
+
 before_install:
   - mkdir -p ~/.local/bin
   - export PATH=$HOME/.local/bin:$PATH
@@ -21,10 +29,10 @@ before_install:
   - cd $PACKAGE
 install:
   - pwd
-  - stack --no-terminal --install-ghc test --only-dependencies
+  - stack --resolver=$RESOLVER --no-terminal --install-ghc test --only-dependencies
 script:
   - pwd
-  - stack --no-terminal test --coverage
+  - stack --resolver=$RESOLVER --no-terminal test --coverage
 after_script:
   - pwd
   - shc ${PACKAGE} ${PACKAGE}-test

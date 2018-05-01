@@ -15,7 +15,7 @@
 # resolver:
 #  name: custom-snapshot
 #  location: "./custom-snapshot.yaml"
-resolver: lts-11.6
+resolver: lts-11.7
 
 # User packages to be built.
 # Various formats can be used as shown in the example below.
@@ -39,7 +39,7 @@ packages:
   - .
   - location:
       git: https://github.com/concert/hs-varword.git
-      commit: 308bd22a40ca51da4d2a6a11a8b96232cc8fa055
+      commit: 8a67562b15b42bbba8885e15a2b124241f6514f5
     subdirs:
      - bytestring-builder-varword
     extra-dep: true
