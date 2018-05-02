@@ -65,7 +65,6 @@ _cabal_build: &_cabal_build
     - cabal check
     - (cd ../${TEST_DEP}; cabal install)
     - cabal install --enable-tests --only-dependencies
-    # - cabal new-build
   script:
     - cabal test --show-details=always
     - cabal sdist
@@ -74,20 +73,20 @@ _cabal_build: &_cabal_build
 matrix:
   include:
   # FIXME: there doesn't seem to be a good way to keep this DRY:
-   # - <<: *_stack_build
-   #   env: RESOLVER=lts-6.25 PACKAGE=attoparsec-varword
-   # - <<: *_stack_build
-   #   env: RESOLVER=lts-6.25 PACKAGE=bytestring-builder-varword
+   - <<: *_stack_build
+     env: RESOLVER=lts-6.25 PACKAGE=attoparsec-varword
+   - <<: *_stack_build
+     env: RESOLVER=lts-6.25 PACKAGE=bytestring-builder-varword
 
-   # - <<: *_stack_build
-   #   env: RESOLVER=lts-9.19 PACKAGE=attoparsec-varword
-   # - <<: *_stack_build
-   #   env: RESOLVER=lts-9.19 PACKAGE=bytestring-builder-varword
+   - <<: *_stack_build
+     env: RESOLVER=lts-9.19 PACKAGE=attoparsec-varword
+   - <<: *_stack_build
+     env: RESOLVER=lts-9.19 PACKAGE=bytestring-builder-varword
 
-   # - <<: *_stack_build
-   #   env: RESOLVER=lts-11.7 PACKAGE=attoparsec-varword
-   # - <<: *_stack_build
-   #   env: RESOLVER=lts-11.7 PACKAGE=bytestring-builder-varword
+   - <<: *_stack_build
+     env: RESOLVER=lts-11.7 PACKAGE=attoparsec-varword
+   - <<: *_stack_build
+     env: RESOLVER=lts-11.7 PACKAGE=bytestring-builder-varword
 
    - <<: *_cabal_build
      env: PACKAGE=attoparsec-varword GHC_VERSION=8.2.2 TEST_DEP=bytestring-builder-varword
