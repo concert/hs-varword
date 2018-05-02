@@ -74,11 +74,6 @@ matrix:
   include:
   # FIXME: there doesn't seem to be a good way to keep this DRY:
    - <<: *_stack_build
-     env: RESOLVER=lts-6.25 PACKAGE=attoparsec-varword
-   - <<: *_stack_build
-     env: RESOLVER=lts-6.25 PACKAGE=bytestring-builder-varword
-
-   - <<: *_stack_build
      env: RESOLVER=lts-9.19 PACKAGE=attoparsec-varword
    - <<: *_stack_build
      env: RESOLVER=lts-9.19 PACKAGE=bytestring-builder-varword
