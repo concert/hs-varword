@@ -28,7 +28,7 @@ library
   exposed-modules:     Data.Attoparsec.VarWord
                      , Data.Attoparsec.VarWord.Internal
   build-depends:       base >= 4.7 && < 5
-                     , attoparsec
+                     , attoparsec >= 0.10 && < 0.14
   default-language:    Haskell2010
 
 test-suite attoparsec-varword-test
@@ -39,10 +39,10 @@ test-suite attoparsec-varword-test
   default-extensions:  BinaryLiterals
   build-depends:       base >= 4.7 && < 5
                      , attoparsec-varword
-                     , attoparsec
-                     , bytestring
-                     , bytestring-builder-varword
-                     , hspec
-                     , QuickCheck
+                     , attoparsec >= 0.10 && < 0.14
+                     , bytestring >= 0.9 && < 0.11
+                     , bytestring-builder-varword >= 0.1 && < 0.2
+                     , hspec >= 2.4.3 && < 2.5.0
+                     , QuickCheck >= 2.7 && < 2.11.4
   other-modules:       Data.Attoparsec.VarWordSpec
   default-language:    Haskell2010
