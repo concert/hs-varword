@@ -83,6 +83,22 @@ matrix:
    - <<: *_stack_build
      env: RESOLVER=lts-11.7 PACKAGE=bytestring-builder-varword
 
+
+   - <<: *_cabal_build
+     env: PACKAGE=attoparsec-varword GHC_VERSION=8.0.2 TEST_DEP=bytestring-builder-varword
+     addons:
+       apt:
+         packages: [*_cabal_apt_packages, ghc-8.0.2]
+         sources: [hvr-ghc]
+
+   - <<: *_cabal_build
+     env: PACKAGE=bytestring-builder-varword GHC_VERSION=8.0.2 TEST_DEP=attoparsec-varword
+     addons:
+       apt:
+         packages: [*_cabal_apt_packages, ghc-8.0.2]
+         sources: [hvr-ghc]
+
+
    - <<: *_cabal_build
      env: PACKAGE=attoparsec-varword GHC_VERSION=8.2.2 TEST_DEP=bytestring-builder-varword
      addons:
@@ -95,4 +111,19 @@ matrix:
      addons:
        apt:
          packages: [*_cabal_apt_packages, ghc-8.2.2]
+         sources: [hvr-ghc]
+
+
+   - <<: *_cabal_build
+     env: PACKAGE=attoparsec-varword GHC_VERSION=8.4.2 TEST_DEP=bytestring-builder-varword
+     addons:
+       apt:
+         packages: [*_cabal_apt_packages, ghc-8.4.2]
+         sources: [hvr-ghc]
+
+   - <<: *_cabal_build
+     env: PACKAGE=bytestring-builder-varword GHC_VERSION=8.4.2 TEST_DEP=attoparsec-varword
+     addons:
+       apt:
+         packages: [*_cabal_apt_packages, ghc-8.4.2]
          sources: [hvr-ghc]
