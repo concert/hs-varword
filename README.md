@@ -1,6 +1,8 @@
 Variable length integer encoding
 ================================
 
+[![Hackage](https://img.shields.io/hackage/v/attoparsec-varword.svg)](
+https://github.com/concert/hs-varword#readme)
 [![Build Status](https://travis-ci.org/concert/hs-varword.svg?branch=master)](
 https://travis-ci.org/concert/hs-varword)
 [![Coverage Status](https://coveralls.io/repos/github/concert/hs-varword/badge.svg?branch=master)](
@@ -10,11 +12,15 @@ This repository consists of two Haskell libraries:
  * [`attoparsec-varword`](
    https://github.com/concert/hs-varword/tree/master/attoparsec-varword#readme)
    for decoding integers within the
-   [`attoparsec`](https://github.com/bos/attoparsec) framework and
+   [`attoparsec`](https://github.com/bos/attoparsec) framework
+   [[hackage](
+   https://hackage.haskell.org/package/attoparsec-varword)]
  * [`bytestring-builder-varword`](
    https://github.com/concert/hs-varword/tree/master/bytestring-builder-varword#readme)
    for encoding integers via `Builder`s compatible with
    [`blaze-builder`](https://github.com/lpsmith/blaze-builder)
+   [[hackage](
+   https://hackage.haskell.org/package/bytestring-builder-varword)]
 
 Motivation
 ----------
