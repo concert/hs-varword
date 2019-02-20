@@ -140,8 +140,10 @@ pages:
   stage: deploy
   dependencies:
     - attoparsec-varword_lts-11.7
+    - bytestring-builder-varword_lts-11.7
   script:
-    mv coverage/ public/
+    - mv coverage/ public/
+    - cp index.html public/
   artifacts:
     paths:
       - public
