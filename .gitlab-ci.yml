@@ -23,6 +23,7 @@ image: haskell:8.6.3
     - cd ${PACKAGE}
     - mv `${STACK} path --local-hpc-root`/* ${COVERAGE_DIR}
   cache:
+    key: ${RESOLVER}
     paths:
       - ${STACK_ROOT}
       - ${STACK_WORK}
@@ -56,19 +57,20 @@ image: haskell:8.6.3
     - rm -fv ${HOME}/.cabal/packages/hackage.haskell.org/01-index.tar.idx
     - rm -rfv ${HOME}/.cabal/packages/head.hackage
   cache:
+    key: ${GHC_VERSION}
     paths:
       - ${HOME}/.cabal/packages
       - ${HOME}/.cabal/store
 
 
-attoparsec-varword_lts-9.19:
+lts-9.19_attoparsec-varword:
   <<: *stack_build
   variables:
     PACKAGE: attoparsec-varword
     RESOLVER: lts-9.19
     <<: *stack_vars
 
-bytestring-builder-varword_lts-9.19:
+lts-9.19_bytestring-builder-varword:
   <<: *stack_build
   variables:
     PACKAGE: bytestring-builder-varword
@@ -76,14 +78,14 @@ bytestring-builder-varword_lts-9.19:
     <<: *stack_vars
 
 
-attoparsec-varword_lts-11.7:
+lts-11.7_attoparsec-varword:
   <<: *stack_build
   variables:
     PACKAGE: attoparsec-varword
     RESOLVER: lts-11.7
     <<: *stack_vars
 
-bytestring-builder-varword_lts-11.7:
+lts-11.7_bytestring-builder-varword:
   <<: *stack_build
   variables:
     PACKAGE: bytestring-builder-varword
@@ -91,14 +93,14 @@ bytestring-builder-varword_lts-11.7:
     <<: *stack_vars
 
 
-attoparsec-varword_ghc-8.0.2:
+ghc-8.0.2_attoparsec-varword:
   <<: *cabal_build
   variables:
     PACKAGE: attoparsec-varword
     GHC_VERSION: 8.0.2
     TEST_DEP: bytestring-builder-varword
 
-bytestring-builder-varword_ghc-8.0.2:
+ghc-8.0.2_bytestring-builder-varword:
   <<: *cabal_build
   variables:
     PACKAGE: bytestring-builder-varword
@@ -106,14 +108,14 @@ bytestring-builder-varword_ghc-8.0.2:
     TEST_DEP: attoparsec-varword
 
 
-attoparsec-varword_ghc-8.2.2:
+ghc-8.2.2_attoparsec-varword:
   <<: *cabal_build
   variables:
     PACKAGE: attoparsec-varword
     GHC_VERSION: 8.2.2
     TEST_DEP: bytestring-builder-varword
 
-bytestring-builder-varword_ghc-8.2.2:
+ghc-8.2.2_bytestring-builder-varword:
   <<: *cabal_build
   variables:
     PACKAGE: bytestring-builder-varword
@@ -121,14 +123,14 @@ bytestring-builder-varword_ghc-8.2.2:
     TEST_DEP: attoparsec-varword
 
 
-attoparsec-varword_ghc-8.4.2:
+ghc-8.4.2_attoparsec-varword:
   <<: *cabal_build
   variables:
     PACKAGE: attoparsec-varword
     GHC_VERSION: 8.4.2
     TEST_DEP: bytestring-builder-varword
 
-bytestring-builder-varword_ghc-8.4.2:
+ghc-8.4.2_bytestring-builder-varword:
   <<: *cabal_build
   variables:
     PACKAGE: bytestring-builder-varword
@@ -139,12 +141,14 @@ bytestring-builder-varword_ghc-8.4.2:
 pages:
   stage: deploy
   dependencies:
-    - attoparsec-varword_lts-11.7
+    - lts-11.7_attoparsec-varword
+    - lts-11.7_bytestring-builder-varword
   script:
-    mv coverage/ public/
+    - mv coverage/ public/
+    - cp index.html public/
   artifacts:
     paths:
       - public
-    expire_in: 10 days
+    expire_in: 3 hours
   only:
     - master
