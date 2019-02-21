@@ -3,10 +3,15 @@ Variable length integer encoding
 
 [![Hackage](https://img.shields.io/hackage/v/attoparsec-varword.svg)](
 https://github.com/concert/hs-varword#readme)
-[![Build Status](https://travis-ci.org/concert/hs-varword.svg?branch=master)](
-https://travis-ci.org/concert/hs-varword)
-[![Coverage Status](https://coveralls.io/repos/github/concert/hs-varword/badge.svg?branch=master)](
-https://coveralls.io/github/concert/hs-varword?branch=master)
+[![pipeline status](https://gitlab.com/concert/hs-varword/badges/master/pipeline.svg)](
+https://gitlab.com/concert/hs-varword/commits/master)
+
+- [![attoparsec coverage](
+   https://gitlab.com/concert/hs-varword/badges/master/coverage.svg?job=lts-11.7_attoparsec-varword)](
+    https://concert.gitlab.io/hs-varword/attoparsec-varword/index.html) attoparsec
+- [![bytestring-builder coverage](
+   https://gitlab.com/concert/hs-varword/badges/master/coverage.svg?job=lts-11.7_bytestring-builder-varword)](
+    https://concert.gitlab.io/hs-varword/bytestring-builder-varword/index.html) bytestring-builder
 
 This repository consists of two Haskell libraries:
  * [`attoparsec-varword`](
