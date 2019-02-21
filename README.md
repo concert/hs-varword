@@ -15,13 +15,13 @@ https://gitlab.com/concert/hs-varword/commits/master)
 
 This repository consists of two Haskell libraries:
  * [`attoparsec-varword`](
-   https://github.com/concert/hs-varword/tree/master/attoparsec-varword#readme)
+   https://gitlab.com/concert/hs-varword/blob/master/attoparsec-varword/README.md)
    for decoding integers within the
    [`attoparsec`](https://github.com/bos/attoparsec) framework
    [[hackage](
    https://hackage.haskell.org/package/attoparsec-varword)]
  * [`bytestring-builder-varword`](
-   https://github.com/concert/hs-varword/tree/master/bytestring-builder-varword#readme)
+   https://gitlab.com/concert/hs-varword/blob/master/bytestring-builder-varword/README.md)
    for encoding integers via `Builder`s compatible with
    [`blaze-builder`](https://github.com/lpsmith/blaze-builder)
    [[hackage](
