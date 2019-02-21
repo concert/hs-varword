@@ -147,6 +147,6 @@ pages:
   artifacts:
     paths:
       - public
-    expire_in: 10 days
+    expire_in: 3 hours
   only:
     - master
