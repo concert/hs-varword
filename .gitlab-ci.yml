@@ -23,6 +23,7 @@ image: haskell:8.6.3
     - cd ${PACKAGE}
     - mv `${STACK} path --local-hpc-root`/* ${COVERAGE_DIR}
   cache:
+    key: ${RESOLVER}
     paths:
       - ${STACK_ROOT}
       - ${STACK_WORK}
@@ -56,6 +57,7 @@ image: haskell:8.6.3
     - rm -fv ${HOME}/.cabal/packages/hackage.haskell.org/01-index.tar.idx
     - rm -rfv ${HOME}/.cabal/packages/head.hackage
   cache:
+    key: ${GHC_VERSION}
     paths:
       - ${HOME}/.cabal/packages
       - ${HOME}/.cabal/store
