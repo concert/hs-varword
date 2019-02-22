@@ -78,18 +78,18 @@ lts-9.19_bytestring-builder-varword:
     <<: *stack_vars
 
 
-lts-11.7_attoparsec-varword:
+lts-12.11_attoparsec-varword:
   <<: *stack_build
   variables:
     PACKAGE: attoparsec-varword
-    RESOLVER: lts-11.7
+    RESOLVER: lts-12.11
     <<: *stack_vars
 
-lts-11.7_bytestring-builder-varword:
+lts-12.11_bytestring-builder-varword:
   <<: *stack_build
   variables:
     PACKAGE: bytestring-builder-varword
-    RESOLVER: lts-11.7
+    RESOLVER: lts-12.11
     <<: *stack_vars
 
 
@@ -141,8 +141,8 @@ ghc-8.4.2_bytestring-builder-varword:
 pages:
   stage: deploy
   dependencies:
-    - lts-11.7_attoparsec-varword
-    - lts-11.7_bytestring-builder-varword
+    - lts-12.11_attoparsec-varword
+    - lts-12.11_bytestring-builder-varword
   script:
     - mv coverage/ public/
     - cp index.html public/
