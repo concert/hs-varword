@@ -42,7 +42,7 @@ test-suite attoparsec-varword-test
                      , attoparsec >= 0.10 && < 0.14
                      , bytestring >= 0.9 && < 0.11
                      , bytestring-builder-varword >= 0.1 && < 0.2
-                     , hspec >= 2.5.0 && < 2.6.0
+                     , hspec >= 2.4.3 && < 2.6.0
                      , QuickCheck >= 2.7 && < 2.11.4
   other-modules:       Data.Attoparsec.VarWordSpec
   default-language:    Haskell2010
