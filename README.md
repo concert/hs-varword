@@ -2,7 +2,7 @@ Variable length integer encoding
 ================================
 
 [![Hackage](https://img.shields.io/hackage/v/attoparsec-varword.svg)](
-https://github.com/concert/hs-varword#readme)
+https://gitlab.com/concert/hs-varword#readme)
 [![pipeline status](https://gitlab.com/concert/hs-varword/badges/master/pipeline.svg)](
 https://gitlab.com/concert/hs-varword/commits/master)
 

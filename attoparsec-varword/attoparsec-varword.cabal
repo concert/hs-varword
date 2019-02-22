@@ -4,8 +4,8 @@ synopsis:            Variable-length integer decoding for Attoparsec
 description:
   A collection of 'Data.Attoparsec.Parser's that decode integer types from
   compact, variable-length representations.
-homepage:            https://github.com/concert/hs-varword#readme
-bug-reports:         https://github.com/concert/hs-varword/issues
+homepage:            https://gitlab.com/concert/hs-varword#readme
+bug-reports:         https://gitlab.com/concert/hs-varword/issues
 stability:           Experimental
 license:             LGPL-3
 license-file:        LICENSE
@@ -19,7 +19,7 @@ cabal-version:       >=1.10
 
 source-repository head
   type:     git
-  location: https://github.com/githubuser/attoparsec-varword
+  location: https://gitlab.com/concert/hs-varword.git
 
 library
   hs-source-dirs:      src
@@ -42,7 +42,7 @@ test-suite attoparsec-varword-test
                      , attoparsec >= 0.10 && < 0.14
                      , bytestring >= 0.9 && < 0.11
                      , bytestring-builder-varword >= 0.1 && < 0.2
-                     , hspec >= 2.4.3 && < 2.5.0
+                     , hspec >= 2.4.3 && < 2.6.0
                      , QuickCheck >= 2.7 && < 2.11.4
   other-modules:       Data.Attoparsec.VarWordSpec
   default-language:    Haskell2010
