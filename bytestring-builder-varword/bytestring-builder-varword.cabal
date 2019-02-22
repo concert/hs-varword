@@ -4,8 +4,8 @@ synopsis:            Variable-length integer encoding
 description:
   A collection of functions for producing 'Data.ByteString.Builder.Builder's
   that encode integer types into compact, variable-length representations.
-homepage:            https://github.com/concert/hs-varword#readme
-bug-reports:         https://github.com/concert/hs-varword/issues
+homepage:            https://gitlab.com/concert/hs-varword#readme
+bug-reports:         https://gitlab.com/concert/hs-varword/issues
 stability:           Experimental
 license:             LGPL-3
 license-file:        LICENSE
@@ -19,7 +19,7 @@ cabal-version:       >=1.10
 
 source-repository head
   type:     git
-  location: https://github.com/githubuser/attoparsec-varword
+  location: https://gitlab.com/concert/hs-varword.git
 
 library
   hs-source-dirs:      src
